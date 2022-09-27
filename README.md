@@ -5,7 +5,7 @@ To support first-person view trajectory prediction research, we present T2FPV, a
 We evaluate existing trajectory prediction approaches under varying levels of realistic perception---displacement errors suffer a 356% increase compared to the top-down, perfect information setting. To promote research in first-person view trajectory prediction, we release our T2FPV-ETH dataset and software tools.
 
 ## Dataset Link
-- https://cmu.box.com/s/5nvkl9jskv4qgx4l3d1i0e1pj6eajgbz 
+- (To be included upon acceptance)
 
 ## Instructions
 (TODO)
