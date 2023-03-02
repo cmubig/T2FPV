@@ -1,0 +1,12 @@
+{
+    "base_config": "./config/fpv_det_train/base_config_vrnn_smooth.json",
+    "trainer": "ego_vrnn",
+    "exp_tag": "det_train_corr_pre_full_res_e2e_smooth_eth",
+    "coord": "rel",
+    "pretrained": {
+        "pretrained_module": "./config/fpv_det_train/module_full_res.json",
+        "pretrained_pred": false
+    },
+
+    "model_design": "./config/models/ego_vrnn.json"
+}

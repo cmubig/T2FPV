@@ -1,0 +1,53 @@
+{
+    "dim": 2,
+    "start_time": 1,
+    "feat_enc_x": {
+        "in_size": 2,
+        "hidden_size": [96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "feat_enc_ego_abs": {
+        "in_size": 2,
+        "time_offset": 1,
+        "use_inference": true,
+        "hidden_size": [96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "encoder": {
+        "in_size": 288,
+        "hidden_size": [96, 64],
+        "out_size": 48,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "prior": {
+        "in_size": 192,
+        "hidden_size": [96, 64],
+        "out_size": 48,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "feat_enc_z": {
+        "in_size": 24,
+        "hidden_size": [96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "decoder": {
+        "in_size": 288,
+        "hidden_size": [96, 64],
+        "out_size": 4,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "rnn": {
+        "in_size": 288,
+        "hidden_size": 96,
+        "num_layers": 2
+    }
+}

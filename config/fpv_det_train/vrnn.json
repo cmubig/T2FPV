@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_det_train/base_config.json",
+    "trainer": "vrnn",
+    "exp_tag": "det_train_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/vrnn.json"
+}

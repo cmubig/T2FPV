@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/bev_noisy/base_config.json",
+    "trainer": "sgnet",
+    "exp_tag": "bev_noisy_corr_rel_noabs_nores_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/sgnet_cvae_corr_rel_noabs_nores.json"
+}

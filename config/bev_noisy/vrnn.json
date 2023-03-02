@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/bev_noisy/base_config.json",
+    "trainer": "vrnn",
+    "exp_tag": "bev_noisy_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/vrnn.json"
+}

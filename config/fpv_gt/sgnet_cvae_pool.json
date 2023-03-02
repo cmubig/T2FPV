@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_gt/base_config.json",
+    "trainer": "sgnet",
+    "exp_tag": "gt_pool_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/sgnet_cvae_pool.json"
+}

@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_gt/base_config.json",
+    "trainer": "ego_vrnn2",
+    "exp_tag": "gt_ego2_direct_shareC_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/ego_vrnn2_direct_shareC.json"
+}

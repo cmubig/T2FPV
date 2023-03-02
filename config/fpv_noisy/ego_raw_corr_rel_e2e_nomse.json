@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_noisy/base_config.json",
+    "trainer": "ego_vrnn",
+    "exp_tag": "noisy_ego_raw_corr_rel_e2e_nomse_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/ego_raw_corr_rel_e2e_nomse.json"
+}

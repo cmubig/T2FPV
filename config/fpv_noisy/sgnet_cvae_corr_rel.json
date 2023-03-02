@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_noisy/base_config.json",
+    "trainer": "sgnet",
+    "exp_tag": "noisy_corr_rel_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/sgnet_cvae_corr_rel.json"
+}

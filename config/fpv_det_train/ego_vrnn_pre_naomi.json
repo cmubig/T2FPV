@@ -1,0 +1,12 @@
+{
+    "base_config": "./config/fpv_det_train/base_config_vrnn_naomi.json",
+    "trainer": "ego_vrnn",
+    "exp_tag": "det_train_pre_naomi_eth",
+    "coord": "rel",
+    "pretrained": {
+        "pretrained_module": false,
+        "pretrained_pred": "./config/fpv_det_train/ego_vrnn.json"
+    },
+
+    "model_design": "./config/models/ego_vrnn.json"
+}

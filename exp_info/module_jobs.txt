@@ -1,0 +1,7 @@
+
+python multi_run_full.py --exp-config config/fpv_det_train/module.json
+python multi_run_full.py --exp-config config/fpv_det_train/module_res.json
+python multi_run_full.py --exp-config config/fpv_det_train/module_dis.json
+
+python multi_run_full.py --exp-config config/fpv_det_train/module_full_res.json
+python multi_run_full.py --exp-config config/fpv_det_train/module_full.json

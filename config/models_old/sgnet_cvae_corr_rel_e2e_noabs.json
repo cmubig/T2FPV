@@ -1,0 +1,54 @@
+{
+    "dim": 2,
+    "interp_valid_only": true,
+    "train_gt": false,
+    "train_e2e": true,
+    "use_corr": true,
+    "no_abs": true,
+    "layer_norm": true,
+    "input_dim": 4,
+    "pred_dim": 2,
+    "hidden_size": 96,
+    "enc_steps": 8,
+    "dec_steps": 12,
+    "dropout": 0.0,
+    "rmse_thres": 1,
+    "K": 20,
+    "nu": 0,
+    "sigma": 1.0,
+    "LATENT_DIM": 32,
+    "DEC_WITH_Z": true,
+    "feat_enc_offset": {
+        "in_size": 8,
+        "hidden_size": [96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "feat_enc_resnet": {
+        "in_size": 2048,
+        "hidden_size": [512],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "corr_enc": {
+        "in_size": 288,
+        "hidden_size": [96, 64],
+        "out_size": 8,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "corr_dec": {
+        "in_size": 16,
+        "hidden_size": [64, 96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "corr_rnn": {
+        "in_size": 192,
+        "hidden_size": 96,
+        "num_layers": 2
+    }
+}

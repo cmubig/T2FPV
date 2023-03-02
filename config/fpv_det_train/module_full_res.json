@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_det_train/base_config_module.json",
+    "trainer": "module",
+    "exp_tag": "det_train_full_res_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/module_full_res.json"
+}

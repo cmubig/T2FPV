@@ -1,0 +1,8 @@
+{
+    "base_config": "./config/fpv_gt/base_config.json",
+    "trainer": "vrnn",
+    "exp_tag": "gt_ego_abs_full_resnet_eth",
+    "coord": "rel",
+
+    "model_design": "./config/models/vrnn_ego_abs_full_resnet.json"
+}

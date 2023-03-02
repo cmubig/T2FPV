@@ -1,0 +1,95 @@
+{
+	"out_dir": "out",
+	"sub_dirs": ["ckpts", "videos", "plots", "trajs"],
+
+	"log_mode": "info",
+	"log_file": "experiment.log",
+
+	"gpu_id": 0,
+	"use_cpu": false,
+
+    "multi_test": true,
+    "test_info": [
+        {
+            "path": "./config/fpv_det_train/base_config.json",
+            "name": "FPV-DetTrain"
+        }
+    ],
+
+	"trajectory": {
+		"hist_len": 8,
+		"hist_step": 10,
+		"fut_len": 12,
+		"fut_step": 10,
+		"skip": 1,
+        "min_agents": 2,
+        "frame_skip": 10,
+		"smoothing": true
+	},
+
+	"dataset": {
+		"loader_type": "fpv",
+		"name": "eth",
+		"pred_dets": true,
+        "load_images": true,
+        "load_detections": true,
+		"alignment": true,
+		"hungarian_match": true,
+        "min_detection_len": 3,
+		"balance": {
+			"enabled": true,
+			"seed": 1,
+			"factors": {
+				"train": 0.15,
+				"val": 0.15,
+				"test": 1
+			},
+			"max_scene": 1000000
+		},
+        "load_resnet": true,
+		"load_npy": true,
+        "img_width": 640,
+        "img_height": 480,
+        "vis_ratio": 100,
+		"no_trainval": false,
+		"npy_path": "./data/processed/",
+        "dets_path": "./data/FPVDataset/pred_dets",
+        "imgs_path": "./data/FPVDataset/imgs",
+        "splits_path": "./data/FPVDataset/sgan_splits",
+        "use_input_cache": true,
+        "input_cache_path": "./data/input_data.pkl",
+		"normalize": false,
+		"train_batch_size": 32,
+		"val_batch_size": 32,
+		"test_batch_size": 32,
+		"loader_num_workers": 0
+	},
+
+	"training_details": {
+		"num_samples": 20,
+		"max_agents": 1000,
+		"load_model": false,
+		"eval_ckpt": false,
+		"ckpt_name": "ckpt_0.pth",
+		"ckpt_freq": 1000,
+		"batch_size": 1,
+		"eval_batch_size": 1,
+		"num_epoch": 100,
+		"num_iter": -1,
+		"eval_num_iter": -1,
+		"test_num_iter": -1,
+		"lr": 0.00001,
+		"update_lr": false,
+		"patience": 10,
+		"start": 0,
+		"warmup": false,
+		"warmup_epochs": 4,
+		"gradient_clip": 10,
+		"seed": 1
+	},
+
+	"visualization": {
+		"enabled": false,
+		"plot_freq": 10000
+	}
+}

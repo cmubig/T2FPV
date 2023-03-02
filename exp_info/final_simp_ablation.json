@@ -1,0 +1,7 @@
+[
+    {"key": "SGNet", "train": "FPV-Det", "path": "out/*/det_train_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Pre", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr", "train": "FPV-Det", "path": "out/*/det_train_corr_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Pre All", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_all_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr All", "train": "FPV-Det", "path": "out/*/det_train_corr_all_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"}
+]

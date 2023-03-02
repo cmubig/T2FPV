@@ -1,0 +1,12 @@
+data/*
+out/*
+figures/*
+**/__pycache__
+
+tmp*
+out_backup*
+**/*_out.txt
+train*.sh
+saved
+imgs
+vis_out

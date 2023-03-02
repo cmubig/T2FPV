@@ -1,0 +1,43 @@
+{
+    "dim": 2,
+    "start_time": 0,
+    "interp_valid_only": true,
+    "train_gt": false,
+    "train_e2e": false,
+    "no_abs": true,
+    "use_corr": true,
+    "idxs": [0, 1, 2, 3, 4, 5, 6, 7],
+    "feat_enc_offset": {
+        "in_size": 8,
+        "hidden_size": [96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "feat_enc_resnet_": {
+        "in_size": 2048,
+        "hidden_size": [96],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "corr_enc": {
+        "in_size": 192,
+        "hidden_size": [96, 64],
+        "out_size": 96,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "corr_dec": {
+        "in_size": 96,
+        "hidden_size": [64, 96],
+        "out_size": 8,
+        "dropout": 0.0,
+        "layer_norm": true
+    },
+    "corr_rnn": {
+        "in_size": 96,
+        "hidden_size": 96,
+        "num_layers": 2
+    }
+}

@@ -1,0 +1,43 @@
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_avrnn.json --run-type test
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_full_res_e2e.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_full_res_e2e.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_avrnn_corr_pre_full_res_e2e.json --run-type test
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_smooth.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_smooth.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_avrnn_smooth.json --run-type test
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_full_res_e2e_smooth.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_full_res_e2e_smooth.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_avrnn_corr_pre_full_res_e2e_smooth.json --run-type test
+
+
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_e2e.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_e2e.json --run-type test
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_res.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_res.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_res_e2e.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_res_e2e.json --run-type test
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_full.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_full.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_full_e2e.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_full_e2e.json --run-type test
+
+python multi_run.py --exp-config config/fpv_det_train/ego_vrnn_corr_pre_full_res.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/sgnet_cvae_corr_pre_full_res.json --run-type test
+
+
+python multi_run.py --exp-config config/fpv_det_train/module_dis.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/module.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/module_full.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/module_res.json --run-type test
+python multi_run.py --exp-config config/fpv_det_train/module_full_res.json --run-type test

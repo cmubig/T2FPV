@@ -1,0 +1,12 @@
+{
+    "base_config": "./config/fpv_det_train/base_config_naomi.json",
+    "trainer": "sgnet",
+    "exp_tag": "det_train_pre_naomi_eth",
+    "coord": "rel",
+    "pretrained": {
+        "pretrained_module": false,
+        "pretrained_pred": "./config/fpv_det_train/sgnet_cvae.json"
+    },
+
+    "model_design": "./config/models/sgnet_cvae.json"
+}

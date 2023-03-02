@@ -1,0 +1,4 @@
+[
+    {"key": "Module Disabled", "train": "FPV-Det", "path": "out/*/det_train_dis_*_module_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "Module Full Res", "train": "FPV-Det", "path": "out/*/det_train_full_res_*_module_rel_2d_hl-8_hs-10_fl-12_fs-10"}
+]

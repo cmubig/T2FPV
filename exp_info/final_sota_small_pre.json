@@ -1,0 +1,11 @@
+[
+    {"key": "VRNN", "train": "FPV-Det", "path": "out/*/det_train_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Smooth", "train": "FPV-Det", "path": "out/*/det_train_smooth_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Pre (Ours)", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_e2e_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet", "train": "FPV-Det", "path": "out/*/det_train_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Smooth", "train": "FPV-Det", "path": "out/*/det_train_smooth_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Pre (Ours)", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "A-VRNN", "train": "FPV-Det", "path": "out/*/det_train_*_ego_avrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "A-VRNN + Smooth", "train": "FPV-Det", "path": "out/*/det_train_smooth_*_ego_avrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "A-VRNN + Corr Pre (Ours)", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_e2e_*_ego_avrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"}
+]

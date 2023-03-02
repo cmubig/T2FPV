@@ -1,0 +1,19 @@
+{
+    "dim": 2,
+    "interp_valid_only": true,
+    "train_gt": false,
+    "use_corr": false,
+    "layer_norm": true,
+    "input_dim": 4,
+    "pred_dim": 2,
+    "hidden_size": 96,
+    "enc_steps": 8,
+    "dec_steps": 12,
+    "dropout": 0.0,
+    "rmse_thres": 1,
+    "K": 20,
+    "nu": 0,
+    "sigma": 1.0,
+    "LATENT_DIM": 32,
+    "DEC_WITH_Z": true
+}

@@ -1,0 +1,20 @@
+[
+    {"key": "VRNN", "train": "FPV-Det", "path": "out/*/det_train_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Res", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_res_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Full", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Full Res", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_res_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_e2e_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Res E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_res_e2e_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Full E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_e2e_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "VRNN + Corr Full Res E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_res_e2e_*_ego_vrnn_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet", "train": "FPV-Det", "path": "out/*/det_train_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Res", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_res_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Full", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Full Res", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_res_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Res E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_res_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Full E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"},
+    {"key": "SGNet + Corr Full Res E2E", "train": "FPV-Det", "path": "out/*/det_train_corr_pre_full_res_e2e_*_sgnet_rel_2d_hl-8_hs-10_fl-12_fs-10"}
+]
