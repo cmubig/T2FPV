@@ -24,6 +24,9 @@ displacement error by more than 10% on average. To
 facilitate research engagement, we release our T2FPV-ETH
 dataset and software tools.
 
+
+![CoFE Example](vis_out_final/sgnet_naomi_univ_batch42_agent19.gif)
+
 ## Dependency Installation
 - Create a conda environment:
     - `conda create --name fpv python=3.7`
