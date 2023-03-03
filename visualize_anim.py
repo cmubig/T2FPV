@@ -247,10 +247,48 @@ class Visualizer:
             #plt.plot(full_imp[:,1], full_imp[:,0],             '-', **lgd_args_list[2])
             # plt.plot(full_base[:,1], full_base[:,0],           '-', **lgd_args_list[3])
 
-            which_to_plot = 0
             def animate(i):
                 plt.clf()
                 plt.plot(full_gt[:,1], full_gt[:,0],               '-', **lgd_args_list[0])
+                plt.scatter(full_gt[:self.hist_len,1][~imputed], full_gt[:self.hist_len,0][~imputed],              **hist_args_list[0], **default_kwargs, hatch=default_hatch)
+                plt.scatter(full_gt[:self.hist_len,1][imputed], full_gt[:self.hist_len,0][imputed],                **hist_args_list[0], **default_kwargs)
+                plt.scatter(full_gt[self.hist_len:,1], full_gt[self.hist_len:,0],          **pred_args_list[0], **default_kwargs)
+
+                # plt.scatter(full_base[:self.hist_len,1][~imputed], full_base[:self.hist_len,0][~imputed],          **hist_args_list[3], **default_kwargs, hatch=default_hatch)
+
+                # plt.scatter(full_base[:self.hist_len,1][imputed], full_base[:self.hist_len,0][imputed],            **hist_args_list[3], **default_kwargs)
+
+                plt.plot(full_imp[:(i), 1], full_imp[:(i), 0], '-', **lgd_args_list[2])
+                scatter_idx = min(i, self.hist_len)
+                plt.scatter(full_imp[:scatter_idx,1][~imputed[:scatter_idx]], full_imp[:scatter_idx,0][~imputed[:scatter_idx]],          **hist_args_list[2], **default_kwargs, hatch=default_hatch)
+                plt.scatter(full_imp[:scatter_idx, 1][imputed[:scatter_idx]], full_imp[:scatter_idx,0][imputed[:scatter_idx]],            **hist_args_list[2], **default_kwargs)
+                if i > self.hist_len:
+                    plt.scatter(full_imp[self.hist_len:i,1], full_imp[self.hist_len:i,0],      **pred_args_list[2], **default_kwargs)
+                plt.plot(full_corr[:(i), 1], full_corr[:(i), 0], '-', **lgd_args_list[1])
+                scatter_idx = min(i, self.hist_len)
+                plt.scatter(full_corr[:scatter_idx,1][~imputed[:scatter_idx]], full_corr[:scatter_idx,0][~imputed[:scatter_idx]],          **hist_args_list[1], **default_kwargs, hatch=default_hatch)
+                plt.scatter(full_corr[:scatter_idx, 1][imputed[:scatter_idx]], full_corr[:scatter_idx,0][imputed[:scatter_idx]],            **hist_args_list[1], **default_kwargs)
+                if i > self.hist_len:
+                    plt.scatter(full_corr[self.hist_len:i,1], full_corr[self.hist_len:i,0],      **pred_args_list[1], **default_kwargs)
+                ## 4. Draw dummy for legend
+                plt.plot(np.nan, np.nan,      **lgd_args_list[0], label='GT')
+                plt.plot(np.nan, np.nan,      **lgd_args_list[1], label=f'{self.imp_name} + CoFE (Ours)')
+                plt.plot(np.nan, np.nan,      **lgd_args_list[2], label=self.imp_name)
+                # plt.plot(np.nan, np.nan,      **lgd_args_list[3], label='Linear Interp.')
+
+
+                handles, labels = plt.gca().get_legend_handles_labels()
+                #specify order of items in legend
+                # order = [0, 3, 2, 1]
+                order = [0, 2, 1]
+                #add legend to plot
+                plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order], loc=2)
+
+                # plt.axis('scaled')
+                # x1, x2 = plt.gca().get_xlim()
+                # y1, y2 = plt.gca().get_ylim()
+
+                # all_traj = np.concatenate([full_gt, full_corr, full_imp, full_base], axis=0)
                 all_traj = np.concatenate([full_gt, full_corr, full_imp], axis=0)
                 y_min, x_min = all_traj.min(axis=0)
                 y_max, x_max = all_traj.max(axis=0)
@@ -290,137 +328,33 @@ class Visualizer:
                     labelright=False,
                     labelbottom=False) # labels along the bottom edge are off
                 plt.grid(True, which='both', alpha=0.5)
-                plt.scatter(full_gt[:self.hist_len,1][~imputed], full_gt[:self.hist_len,0][~imputed],              **hist_args_list[0], **default_kwargs, hatch=default_hatch)
-                plt.scatter(full_gt[:self.hist_len,1][imputed], full_gt[:self.hist_len,0][imputed],                **hist_args_list[0], **default_kwargs)
-                plt.scatter(full_gt[self.hist_len:,1], full_gt[self.hist_len:,0],          **pred_args_list[0], **default_kwargs)
+                ax = plt.gca()
 
-                # plt.scatter(full_base[:self.hist_len,1][~imputed], full_base[:self.hist_len,0][~imputed],          **hist_args_list[3], **default_kwargs, hatch=default_hatch)
+                ax2 = ax.twinx()
+                ax2.scatter(np.NaN, np.NaN, **hist_args_list[0], **default_kwargs, label='Observation', hatch=default_hatch)
+                ax2.scatter(np.NaN, np.NaN, **hist_args_list[0], **default_kwargs, label='Missing (Imputed)')
+                ax2.scatter(np.NaN, np.NaN, **pred_args_list[0], **default_kwargs, label='Prediction')
 
-                # plt.scatter(full_base[:self.hist_len,1][imputed], full_base[:self.hist_len,0][imputed],            **hist_args_list[3], **default_kwargs)
+                ax2.set_yticks([])
+                ax2.get_yaxis().set_visible(False)
+                ax2.legend(loc=3)
 
-                if which_to_plot == 1:
-                    plt.plot(full_imp[:(i), 1], full_imp[:(i), 0], '-', **lgd_args_list[2])
-                    scatter_idx = min(i, self.hist_len)
-                    plt.scatter(full_imp[:scatter_idx,1][~imputed[:scatter_idx]], full_imp[:scatter_idx,0][~imputed[:scatter_idx]],          **hist_args_list[2], **default_kwargs, hatch=default_hatch)
-                    plt.scatter(full_imp[:scatter_idx, 1][imputed[:scatter_idx]], full_imp[:scatter_idx,0][imputed[:scatter_idx]],            **hist_args_list[2], **default_kwargs)
-                    if i > self.hist_len:
-                        plt.scatter(full_imp[self.hist_len:i,1], full_imp[self.hist_len:i,0],      **pred_args_list[2], **default_kwargs)
-                else:
-                    plt.plot(full_corr[:(i), 1], full_corr[:(i), 0], '-', **lgd_args_list[1])
-                    scatter_idx = min(i, self.hist_len)
-                    plt.scatter(full_corr[:scatter_idx,1][~imputed[:scatter_idx]], full_corr[:scatter_idx,0][~imputed[:scatter_idx]],          **hist_args_list[1], **default_kwargs, hatch=default_hatch)
-                    plt.scatter(full_corr[:scatter_idx, 1][imputed[:scatter_idx]], full_corr[:scatter_idx,0][imputed[:scatter_idx]],            **hist_args_list[1], **default_kwargs)
-                    if i > self.hist_len:
-                        plt.scatter(full_corr[self.hist_len:i,1], full_corr[self.hist_len:i,0],      **pred_args_list[1], **default_kwargs)
+                for tick in ax.yaxis.get_major_ticks():
+                    tick.tick1line.set_visible(False)
+                    tick.tick2line.set_visible(False)
+                    tick.label1.set_visible(False)
+                    tick.label2.set_visible(False)
+
+                # if self.smooth:
+                #     plt.plot(self.data['hist_abs_smooth'][:,agent,0], self.data['hist_abs_smooth'][:,agent,1], 'm')
+                #     plt.legend(['hist_gt', 'hist_abs', 'fut_gt' ,'fut_abs', 'start_gt', 'start_abs', 'hist_abs_smooth'])
+                # plt.title(f"{self.algo_name} {self.fold_name} Predictions")
+                plt.tight_layout()
 
             from matplotlib.animation import FuncAnimation
             anim = FuncAnimation(plt.gcf(), animate, frames=21, interval=400, repeat=False)
-            anim.save(f'tmp{which_to_plot}.gif', dpi=300)
-            continue
+            anim.save(f'{self.plot_dir}/{self.algo_out_name}_{self.imp_out_name}_{self.fold}_batch{batch}_agent{agent}.gif', dpi=300)
 
-
-
-            ## 2. Put markers: observations
-            # Not imputed (observation): with hatch
-            plt.scatter(full_gt[:self.hist_len,1][~imputed], full_gt[:self.hist_len,0][~imputed],              **hist_args_list[0], **default_kwargs, hatch=default_hatch)
-            plt.scatter(full_corr[:self.hist_len,1][~imputed], full_corr[:self.hist_len,0][~imputed],          **hist_args_list[1], **default_kwargs, hatch=default_hatch)
-            plt.scatter(full_imp[:self.hist_len,1][~imputed], full_imp[:self.hist_len,0][~imputed],            **hist_args_list[2], **default_kwargs, hatch=default_hatch)
-            # plt.scatter(full_base[:self.hist_len,1][~imputed], full_base[:self.hist_len,0][~imputed],          **hist_args_list[3], **default_kwargs, hatch=default_hatch)
-
-            # Imputed (observation)
-            plt.scatter(full_gt[:self.hist_len,1][imputed], full_gt[:self.hist_len,0][imputed],                **hist_args_list[0], **default_kwargs)
-            plt.scatter(full_corr[:self.hist_len,1][imputed], full_corr[:self.hist_len,0][imputed],            **hist_args_list[1], **default_kwargs)
-            plt.scatter(full_imp[:self.hist_len,1][imputed], full_imp[:self.hist_len,0][imputed],              **hist_args_list[2], **default_kwargs)
-            # plt.scatter(full_base[:self.hist_len,1][imputed], full_base[:self.hist_len,0][imputed],            **hist_args_list[3], **default_kwargs)
-
-            ## 3. Put markers: predictions
-            plt.scatter(full_gt[self.hist_len:,1], full_gt[self.hist_len:,0],          **pred_args_list[0], **default_kwargs)
-            plt.scatter(full_corr[self.hist_len:,1], full_corr[self.hist_len:,0],      **pred_args_list[1], **default_kwargs)
-            plt.scatter(full_imp[self.hist_len:,1], full_imp[self.hist_len:,0],        **pred_args_list[2], **default_kwargs)
-            # plt.scatter(full_base[self.hist_len-1:,1], full_base[self.hist_len-1:,0],      **pred_args_list[3], **default_kwargs)
-
-            ## 4. Draw dummy for legend
-            plt.plot(np.nan, np.nan,      **lgd_args_list[0], label='GT')
-            plt.plot(np.nan, np.nan,      **lgd_args_list[1], label=f'{self.imp_name} + CoFE (Ours)')
-            plt.plot(np.nan, np.nan,      **lgd_args_list[2], label=self.imp_name)
-            # plt.plot(np.nan, np.nan,      **lgd_args_list[3], label='Linear Interp.')
-
-
-            handles, labels = plt.gca().get_legend_handles_labels()
-            #specify order of items in legend
-            # order = [0, 3, 2, 1]
-            order = [0, 2, 1]
-            #add legend to plot
-            plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order], loc=2)
-
-            # plt.axis('scaled')
-            # x1, x2 = plt.gca().get_xlim()
-            # y1, y2 = plt.gca().get_ylim()
-
-            # all_traj = np.concatenate([full_gt, full_corr, full_imp, full_base], axis=0)
-            all_traj = np.concatenate([full_gt, full_corr, full_imp], axis=0)
-            y_min, x_min = all_traj.min(axis=0)
-            y_max, x_max = all_traj.max(axis=0)
-
-            x_min = np.floor(x_min)
-            y_min = np.floor(y_min)
-            x_max = np.ceil(x_max)
-            y_max = np.ceil(y_max)
-
-            height = y_max - y_min
-            width = x_max - x_min
-
-            if height > width:
-                x_min -= (height - width) / 2
-                x_max += (height - width) / 2
-            elif height < width:
-                y_min -= (width - height) / 2
-                y_max += (width - height) / 2
-
-            plt.xlim([x_min, x_max])
-            plt.ylim([y_min, y_max])
-
-
-            tick_r = 1.0
-            xtick_vals = np.arange(x_min, x_max, tick_r)
-            plt.xticks(xtick_vals)
-
-            ytick_vals = np.arange(y_min, y_max, tick_r)
-            plt.yticks(ytick_vals)
-
-            plt.tick_params(
-                which='both',      # both major and minor ticks are affected
-                bottom=False,      # ticks along the bottom edge are off
-                right=False,
-                left=False,
-                labelleft=False,
-                labelright=False,
-                labelbottom=False) # labels along the bottom edge are off
-            plt.grid(True, which='both', alpha=0.5)
-            ax = plt.gca()
-
-            ax2 = ax.twinx()
-            ax2.scatter(np.NaN, np.NaN, **hist_args_list[0], **default_kwargs, label='Observation', hatch=default_hatch)
-            ax2.scatter(np.NaN, np.NaN, **hist_args_list[0], **default_kwargs, label='Missing (Imputed)')
-            ax2.scatter(np.NaN, np.NaN, **pred_args_list[0], **default_kwargs, label='Prediction')
-
-            ax2.set_yticks([])
-            ax2.get_yaxis().set_visible(False)
-            ax2.legend(loc=3)
-
-            for tick in ax.yaxis.get_major_ticks():
-                tick.tick1line.set_visible(False)
-                tick.tick2line.set_visible(False)
-                tick.label1.set_visible(False)
-                tick.label2.set_visible(False)
-
-            # if self.smooth:
-            #     plt.plot(self.data['hist_abs_smooth'][:,agent,0], self.data['hist_abs_smooth'][:,agent,1], 'm')
-            #     plt.legend(['hist_gt', 'hist_abs', 'fut_gt' ,'fut_abs', 'start_gt', 'start_abs', 'hist_abs_smooth'])
-            # plt.title(f"{self.algo_name} {self.fold_name} Predictions")
-            plt.tight_layout()
-            plt.savefig(f'{self.plot_dir}/{self.algo_out_name}_{self.imp_out_name}_{self.fold}_batch{batch}_agent{agent}.png', dpi=300, bbox_inches='tight')
-            plt.clf()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
