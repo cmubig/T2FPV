@@ -2,6 +2,7 @@ data/*
 out/*
 figures/*
 **/__pycache__
+submission_gt*
 
 tmp*
 out_backup*
