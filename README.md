@@ -68,7 +68,7 @@ You can either download the raw data directly and follow the pre-processing step
 - See https://eval.ai/web/challenges/challenge-page/2086/evaluation for more info on terms and conditions
 - For participation in the 2023 IROS workshop challenge, first train the 5 models as required:
     - `python multi_run.py --exp-config config/fpv_det_train/[YOUR CONFIG].json --run-type trainval`
-    - This will output the predicted tensors in `out/*/det_train_*/trajs/`; note that these outputs will automatically filter to the best-of-six trajectory down to one based on ADE to ground truth. 
+    - This will output the predicted tensors in `out/*/det_train_*/trajs/`; note that these outputs will automatically filter the six trajectories down to one based on minADE to ground truth. 
 - Then, run the following to generate the `submission.json` file to test against
     - `python submission_eval_ai.py --exp-config config/fpv_det_train/[YOUR FILE].json --output submission_test.npy`
     - This will process the outputted tensors from above into the correct format for eval.ai submission; examine the python script for more information
