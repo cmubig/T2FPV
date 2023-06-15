@@ -16,9 +16,9 @@ import torch.utils
 import torch.utils.data
 
 
-# 1. Train NAOMI shit on our data, once for each fold
+# 1. Train NAOMI on our data, once for each fold
 # 2. We use NAOMI one time at test to output a new dataset
-# 3. We re-run baseline stuff (SGNet, VRNN, A-VRNN) on the new dataset, with NAOMI's shit
+# 3. We re-run baseline stuff (SGNet, VRNN, A-VRNN) on the new dataset, with NAOMI
 # 4. potentially try incorporating our stuff too?
 
 from helpers import *
